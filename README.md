@@ -27,39 +27,54 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 # 🧩 Exercise 1 – Add and Test a New User
 
 ### **Task 1: Add a New User**
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a **Global Administrator** using your Microsoft 365 admin credentials.  
-2. In the left-hand menu, expand **Identity → Users → All Users**.  
-3. Select **+ New user → Create new user**.
-4. Provide the following:
+1. After signing in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a **Global Administrator** using Microsoft 365 admin credentials, in the left-hand menu, expand **Entra ID → Users → All Users**, then select **+ New user → Create new user**.
+![descriptive alt text](./1.png)
+2. Provide the following:
    - **User principal name:** `ChrisG`
    - **Display name:** `Chris Green`
    - Ensure **Auto-generate password** is enabled.  
-5. Copy the generated password securely — you’ll need it for sign-in.  
-6. Select **Review + Create**, then confirm user creation.  
+3. Copy the generated password securely — it's needed for sign-in.
+![descriptive alt text](./2.png)  
+4. Select **Review + Create**, then confirm user creation.  
+![descriptive alt text](./3.png)
+![descriptive alt text](./4.png)
+![descriptive alt text](./15.png)
 
 ### **Task 2: Sign In as the New User and Attempt App Creation**
 1. Open an **InPrivate/Incognito** browser window.  
 2. Navigate again to [https://entra.microsoft.com](https://entra.microsoft.com).  
-3. Sign in as **Chris Green** using the provided username and password.  
+3. Sign in as **Chris Green** using the provided username and password.
+![descriptive alt text](./5.png)
+![descriptive alt text](./6.png) 
 4. When prompted, update the password:
    - **Current Password:** Auto-generated password  
-   - **New Password:** Your secure choice  
-5. After signing in, use the search bar to locate **Enterprise Applications**.  
-6. Select **+ New Application** — observe that “Create your own application” is unavailable.  
-7. Explore settings like **Consent and Permissions** and **User Settings** to verify lack of admin privileges.  
+   - **New Password:** Your secure choice
+![descriptive alt text](./7.png)
+![descriptive alt text](./8.png)
+5. After signing in, use the search bar to locate **Enterprise Applications**.
+![descriptive alt text](./9.png)
+6. Select **+ New Application** — observe that “Create your own application” is unavailable.
+![descriptive alt text](./10.png)
+![descriptive alt text](./11.png)
+7. Explore settings like **Consent and Permissions** and **User Settings** to verify lack of admin privileges.
+![descriptive alt text](./12.png)
 8. Sign out from the Chris Green session.
+![descriptive alt text](./13.png)
 
 ---
 
 # 🧩 Exercise 2 – Assign Role and Create an Application
 
 ### **Task 1: Assign Application Administrator Role**
-1. Sign in as an **Administrator** in the Entra admin center.  
-2. Navigate to **Identity → Users → All Users → Chris Green**.  
-3. In the left-hand menu, select **Assigned Roles → + Add Assignments**.  
-4. Choose the **Application Administrator** role from the dropdown.  
-5. Under **Assignment Type**, mark **Active**, and use a justification like “Needed for lab.”  
-6. Select **Assign**, then **Refresh** to confirm the new role assignment.  
+1. As **Administrator** in the Entra admin center, navigate to **Identity → Users → All Users → Chris Green**. In the left-hand menu, select **Assigned Roles → + Add Assignments**.
+![descriptive alt text](./16.png)
+2. Choose the **Application Administrator** role from the dropdown.
+![descriptive alt text](./17.png)
+![descriptive alt text](./18.png)
+4. Under **Assignment Type**, mark **Active**, and use a justification like “Needed for lab.”
+![descriptive alt text](./19.png)
+5. Select **Assign**, then **Refresh** to confirm the new role assignment.  
+![descriptive alt text](./20.png)
 
 ### **Task 2: Verify New Role Permissions**
 1. Launch a new InPrivate browser session.  
