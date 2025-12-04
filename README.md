@@ -123,40 +123,59 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 ![descriptive alt text](./34.png)
    ```powershell
    Connect-MgGraph -Scopes "User.ReadWrite.All"
-7. Define password policy:
+4. Define password policy:
 ![descriptive alt text](./36.png)
    ```powershell
-   $PWProfile = @{ Password = "<Enter-Complex-Password>"; ForceChangePasswordNextSignIn = $false }
-8. Create new user and assign role:
+   $PWProfile = @{
+    Password = "<Enter-Complex-Password>";
+    ForceChangePasswordNextSignIn = $false
+   }
+
+5. Create new user and assign role:
+![descriptive alt text](./37.png)
    ```powershell
-   New-MgUser -DisplayName "New PW User" -GivenName "New" -Surname "User" -MailNickname "newuser" -UsageLocation "US" -UserPrincipalName "newuser@<tenantname>.onmicrosoft.com" -PasswordProfile $PWProfile -AccountEnabled -Department "Research" -JobTitle "Trainer"
-9. Verify user creation:
+   New-MgUser `
+    -DisplayName "Juan Santos" `
+    -GivenName "Juan" -Surname "Santos" `
+    -MailNickname "JuanS" `
+    -UsageLocation "US" `
+    -UserPrincipalName "JuanS@notapplicable356.onmicrosoft.com" `
+    -PasswordProfile $PWProfile -AccountEnabled `
+    -Department "Marketing" -JobTitle "Trainer"
+
+6. Verify user creation:
+![descriptive alt text](./38.png)
    ```powershell
    Get-MgUser
 
 # 🧩 Exercise 5 – Remove and Restore Users
 
 ### **Task 1 – Delete a User**
-1. Navigate to Identity → Users → All Users.
-2. Select Chris Green and choose Delete → Yes.
+1. Navigate to Entra ID → Users → All Users, then select **Chris Green** and choose Delete.
+![descriptive alt text](./39.png)
+2. Refresh the page to see that Chris Green has been removed from the list.
+![descriptive alt text](./40.png)
 
 ### **Task 2 – Restore Deleted User**
-1. From the side menu, Deleted Users → find Chris Green.
-2. Click Restore User, confirm, then check All Users to verify.
+1. From the side menu, Deleted Users → find Chris Green, and click Restore User.
+![descriptive alt text](./41.png)
+2. Confirm Chris Green was restored by checking All users to verify.
+![descriptive alt text](./42.png)
 
 # 🧩 Exercise 6 – Assign a Windows 10/11 License
 
 ### **Task 1 – Locate an Unlicensed User**
-1. Search for Jane Smith → open profile.
-2. Confirm or set Usage Location.
-3. In the Licenses tab, verify No license assigned.
+1. Search for Jane Smith → open profile and verify No license assigned.
+![descriptive alt text](./43.png)
 
 ### **Task 2 – Assign License**
-1. Open https://admin.microsoft.com.
-2. Navigate to Billing → Licenses.
-3. Select Windows 10/11 Enterprise E3 → + Assign Licenses.
-4. Search for Jane Smith → Assign.
-5. Return to Entra ID → verify license is now present.
+1. Open https://admin.microsoft.com, navigate to Billing → Licenses, select Microsoft Entra ID P2
+![descriptive alt text](./44.png)
+2. Click **+ Assign Licenses** and search for Jane Smith → Assign Licenses.
+![descriptive alt text](./45.png)
+![descriptive alt text](./46.png)
+3. Return to Entra ID → verify license is now present.
+![descriptive alt text](./47.png)
 
 # ✅ Summary
 Completed Tasks
