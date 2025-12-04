@@ -57,7 +57,7 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 ![descriptive alt text](./10.png)
 ![descriptive alt text](./11.png)
 7. Explore settings like **Consent and Permissions** and **User Settings** to verify lack of admin privileges.
-![descriptive alt text](./12.png)
+![descriptive alt text](./12.PNG)
 8. Sign out from the Chris Green session.
 ![descriptive alt text](./13.png)
 
