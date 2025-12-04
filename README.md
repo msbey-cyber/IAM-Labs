@@ -163,7 +163,7 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 2. Confirm Chris Green was restored by checking All users to verify.
 ![descriptive alt text](./42.png)
 
-# 🧩 Exercise 6 – Assign a Windows 10/11 License
+# 🧩 Exercise 6 – Assign a Microsoft Entra ID P2 License
 
 ### **Task 1 – Locate an Unlicensed User**
 1. Search for Jane Smith → open profile and verify No license assigned.
