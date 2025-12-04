@@ -29,13 +29,14 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 ### **Task 1: Add a New User**
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a **Global Administrator** using your Microsoft 365 admin credentials.  
 2. In the left-hand menu, expand **Identity → Users → All Users**.  
-3. Select **+ New user → Create new user**.  
-4. Provide the following:
+3. Select **+ New user → Create new user**.
+1.png
+5. Provide the following:
    - **User principal name:** `ChrisG`
    - **Display name:** `Chris Green`
    - Ensure **Auto-generate password** is enabled.  
-5. Copy the generated password securely — you’ll need it for sign-in.  
-6. Select **Review + Create**, then confirm user creation.  
+6. Copy the generated password securely — you’ll need it for sign-in.  
+7. Select **Review + Create**, then confirm user creation.  
 
 ### **Task 2: Sign In as the New User and Attempt App Creation**
 1. Open an **InPrivate/Incognito** browser window.  
