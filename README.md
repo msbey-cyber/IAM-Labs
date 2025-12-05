@@ -35,32 +35,32 @@ The exercises demonstrate identity lifecycle management tasks including user cre
    - **Display name:** `Chris Green`
    - Ensure **Auto-generate password** is enabled.  
 3. Copy the generated password securely — it's needed for sign-in.
-![descriptive alt text](./2.png)  
+![descriptive alt text](./images/2.png)  
 4. Select **Review + Create**, then confirm user creation.  
-![descriptive alt text](./3.png)
-![descriptive alt text](./4.png)
-![descriptive alt text](./15.png)
+![descriptive alt text](./images/3.png)
+![descriptive alt text](./images/4.png)
+![descriptive alt text](./images/15.png)
 
 ### **Task 2: Sign In as the New User and Attempt App Creation**
 1. Open an **InPrivate/Incognito** browser window.  
 2. Navigate again to [https://entra.microsoft.com](https://entra.microsoft.com).  
 3. Sign in as **Chris Green** using the provided username and password.
-![descriptive alt text](./5.png)
-![descriptive alt text](./6.png) 
+![descriptive alt text](./images/5.png)
+![descriptive alt text](./images/6.png) 
 4. When prompted, update the password:
    - **Current Password:** Auto-generated password  
    - **New Password:** Your secure choice
-![descriptive alt text](./7.png)
-![descriptive alt text](./8.png)
+![descriptive alt text](./images/7.png)
+![descriptive alt text](./images/8.png)
 5. After signing in, use the search bar to locate **Enterprise Applications**.
-![descriptive alt text](./9.png)
+![descriptive alt text](./images/9.png)
 6. Select **+ New Application** — observe that “Create your own application” is unavailable.
-![descriptive alt text](./10.png)
-![descriptive alt text](./11.png)
+![descriptive alt text](./images/10.png)
+![descriptive alt text](./images/11.png)
 7. Explore settings like **Consent and Permissions** and **User Settings** to verify lack of admin privileges.
-![descriptive alt text](./12.PNG)
+![descriptive alt text](./images/12.PNG)
 8. Sign out from the Chris Green session.
-![descriptive alt text](./13.png)
+![descriptive alt text](./images/13.png)
 
 ---
 
@@ -68,19 +68,19 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 
 ### **Task 1: Assign Application Administrator Role**
 1. As **Administrator** in the Entra admin center, navigate to **Entra ID → Users → All Users → Chris Green**. In the left-hand menu, select **Assigned Roles → + Add Assignments**.
-![descriptive alt text](./16.png)
+![descriptive alt text](./images/16.png)
 2. Choose the **Application Administrator** role from the dropdown.
-![descriptive alt text](./17.png)
-![descriptive alt text](./18.PNG)
+![descriptive alt text](./images/17.png)
+![descriptive alt text](./images/18.PNG)
 3. Under **Assignment Type**, mark **Active**, and use a justification like “Needed for lab.” and select **Assign**.
-![descriptive alt text](./19.PNG)
+![descriptive alt text](./images/19.PNG)
 4. Click **Refresh** to confirm the new role assignment.  
-![descriptive alt text](./20.png)
+![descriptive alt text](./images/20.png)
 
 ### **Task 2: Verify New Role Permissions**
 1. After launching a new In-Private browser session and signing in as **Chris Green** again, return to **Enterprise Applications** via search and confirm that **+ New Application** and **Create your own application** options are now available.
-![descriptive alt text](./21.png)
-![descriptive alt text](./22.png)
+![descriptive alt text](./images/21.png)
+![descriptive alt text](./images/22.png)
 2. Sign out again once verified.
 
 ---
@@ -89,7 +89,7 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 
 ### **Task 1: Remove the Application Administrator Role**
 1. After signing in as the **Administrator** again, typing **Roles and Administrators** in the search bar and and opening it, select **Application Administrator** from the list, then on the **Assignments** page, locate **Chris Green**, select the checkbox beside the user, and choose **Remove**.
-![descriptive alt text](./23.png)
+![descriptive alt text](./images/23.png)
 2. Confirm removal, then close the window.
 
 ---
@@ -98,34 +98,34 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 
 ### **Task 1: Bulk Creation Using CSV**
 1. From Entra ID, navigate to **Identity → Users → All Users**, then select **Bulk Operations → Bulk Create**.
-![descriptive alt text](./24.png)
+![descriptive alt text](./images/24.png)
 2. Download the provided **CSV template**.
-![descriptive alt text](./25.png)
+![descriptive alt text](./images/25.png)
 3. Open the file and populate sample user details (e.g., name, username, and department).
-![descriptive alt text](./26.png)
+![descriptive alt text](./images/26.png)
 4. Save the CSV with your tenant domain (e.g. `user1@notapplicable356.onmicrosoft.com`).  
 5. Upload the file back under the **Bulk Create** section and select **Submit**.
-![descriptive alt text](./27.png)
+![descriptive alt text](./images/27.png)
 6. Confirm successful creation — new users should appear in the user list.
-![descriptive alt text](./28.png)
+![descriptive alt text](./images/28.png)
 
 ### **Task 2: Bulk Creation Using PowerShell**
 1. Ensure **PowerShell version 7.2+** is installed.  
 2. Open PowerShell and install the Microsoft Graph module:
-![descriptive alt text](./29.png)
-![descriptive alt text](./30.png)
+![descriptive alt text](./images/29.png)
+![descriptive alt text](./images/30.png)
    ```powershell
    Install-Module Microsoft.Graph -Scope CurrentUser -Verbose
    Get-InstalledModule Microsoft.Graph
 3. Connect to Microsoft Graph (after entering the command, log in with admin email under the link generated in PowerShell, along with the provided code; after successful login, "Welcome to Microsoft Graph!" message appears in PowerShell):
-![descriptive alt text](./31.png)
-![descriptive alt text](./32.png)
-![descriptive alt text](./33.png)
-![descriptive alt text](./34.png)
+![descriptive alt text](./images/31.png)
+![descriptive alt text](./images/32.png)
+![descriptive alt text](./images/33.png)
+![descriptive alt text](./images/34.png)
    ```powershell
    Connect-MgGraph -Scopes "User.ReadWrite.All"
 4. Define password policy:
-![descriptive alt text](./36.png)
+![descriptive alt text](./images/36.png)
    ```powershell
    $PWProfile = @{
     Password = "<Enter-Complex-Password>";
@@ -133,7 +133,7 @@ The exercises demonstrate identity lifecycle management tasks including user cre
    }
 
 5. Create new user and assign role:
-![descriptive alt text](./37.png)
+![descriptive alt text](./images/37.png)
    ```powershell
    New-MgUser `
     -DisplayName "Juan Santos" `
@@ -145,7 +145,7 @@ The exercises demonstrate identity lifecycle management tasks including user cre
     -Department "Marketing" -JobTitle "Trainer"
 
 6. Verify user creation:
-![descriptive alt text](./38.png)
+![descriptive alt text](./images/38.png)
    ```powershell
    Get-MgUser
 
@@ -153,30 +153,30 @@ The exercises demonstrate identity lifecycle management tasks including user cre
 
 ### **Task 1 – Delete a User**
 1. Navigate to Entra ID → Users → All Users, then select **Chris Green** and choose Delete.
-![descriptive alt text](./39.png)
+![descriptive alt text](./images/39.png)
 2. Refresh the page to see that Chris Green has been removed from the list.
-![descriptive alt text](./40.png)
+![descriptive alt text](./images/40.png)
 
 ### **Task 2 – Restore Deleted User**
 1. From the side menu, Deleted Users → find Chris Green, and click Restore User.
-![descriptive alt text](./41.png)
+![descriptive alt text](./images/41.png)
 2. Confirm Chris Green was restored by checking All users to verify.
-![descriptive alt text](./42.png)
+![descriptive alt text](./images/42.png)
 
 # 🧩 Exercise 6 – Assign a Microsoft Entra ID P2 License
 
 ### **Task 1 – Locate an Unlicensed User**
 1. Search for Jane Smith → open profile and verify No license assigned.
-![descriptive alt text](./43.png)
+![descriptive alt text](./images/43.png)
 
 ### **Task 2 – Assign License**
 1. Open https://admin.microsoft.com, navigate to Billing → Licenses, select Microsoft Entra ID P2
-![descriptive alt text](./44.png)
+![descriptive alt text](./images/44.png)
 2. Click **+ Assign Licenses** and search for Jane Smith → Assign Licenses.
-![descriptive alt text](./45.png)
-![descriptive alt text](./46.png)
+![descriptive alt text](./images/45.png)
+![descriptive alt text](./images/46.png)
 3. Return to Entra ID → verify license is now present.
-![descriptive alt text](./47.png)
+![descriptive alt text](./images/47.png)
 
 # ✅ Summary
 Completed Tasks
