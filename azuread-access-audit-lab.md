@@ -169,33 +169,87 @@ Disabled accounts assigned to admin roles are a critical findi
 
 1. Log in to https://portal.azure.com/ as admin, and click on the PowerShell icon to the upper-right of the screen to open CloudShell
 ![descriptive alt text](./images/150.png)
-2. Run the command Install-Module Microsoft.Graph -Scope CurrentUser -Force
+2. The Microsoft Graph module contains all the cmdlets needed to query and manage Entra ID (Azure AD).  
+   Install it for the current user by running the following command:
 ![descriptive alt text](./images/134.png)
-3. Run the command **Import-Module Microsoft.Graph**, then run command **Connect-MgGraph -Scopes "User.ReadWrite.All"**. After running this command, I was prompted with the message **To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B426889U2l to authenticate** (you must authenticate with a global administrator account).
+```powershell
+   Install-Module Microsoft.Graph -Scope CurrentUser -Force
+   ```
+3. Before running any Graph-based commands, load the module into your PowerShell session and authenticate with the required permissions.
 ![descriptive alt text](./images/136.png)
-4. Enter the code that is provided in PowerShell after running the previous command, then enter your login credentials, enter the number provided from the login process to your Microsoft Authenticator app on your mobile device, then confirm you are trying to sign in to Microfost Ggraph Command Line Tools by clicking **Continue**. After logging in, a prompt will appear that you can close that tab out and return to the PowerShell terminal
+-   **Import the Microsoft Graph PowerShell module:**
+      ```powershell
+      Import-Module Microsoft.Graph
+      ```
+-   **Connect to Microsoft Graph with the necessary permissions:**
+     ```powershell
+      Connect-MgGraph -Scopes "User.ReadWrite.All"
+      ```
+5. After running this command, I was prompted with the message **To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B426889U2l to authenticate** (you must authenticate with a global administrator account). Enter the code provided in PowerShell after running the previous command, then enter your login credentials, enter the number provided from the login process to your Microsoft Authenticator app on your mobile device, then confirm you are trying to sign in to Microfost Graph Command Line Tools by clicking **Continue**. After logging in, a prompt will appear that you can close that tab out and return to the PowerShell terminal:
 ![descriptive alt text](./images/137.png)
 ![descriptive alt text](./images/138.png)
 ![descriptive alt text](./images/139.png)
 ![descriptive alt text](./images/140.png)
 ![descriptive alt text](./images/141.png)<br>
-5. Successful login will reflect on the PowerShell/CloudShell screen with a welcome message 
+6. Successful login will reflect on the PowerShell/CloudShell screen with a welcome message 
 ![descriptive alt text](./images/142.png)
-6. Run the following command to generate a report of users and their assigned managers:
+7. Run the following command to generate a report of users and their assigned managers:
 ![descriptive alt text](./images/143.png)
-
+   ```powershell
+   $report = Get-MgUser -All -Property "id,displayName,userPrincipalName,accountEnabled" |
+   Select-Object DisplayName,UserPrincipalName,AccountEnabled,
+   @{Name='Manager';Expression={(Get-MgUserManager -UserId $_.Id -ErrorAction SilentlyContinue).DisplayName}}<br>
+   ```
+7. Filter the user report to find accounts that do not have a manager assigned by running the following PowerShell command:
 ![descriptive alt text](./images/144.png)
+   ```powershell
+   $orphans = $report | Where-Object { -not $_.Manager }
+   ```
+   **OPTIONAL**: Identify which orphaned accounts have administrative roles:<br>
+   ```powershell
+   $roles = Get-MgDirectoryRole
+foreach ($role in $roles) {
+  $members = Get-MgDirectoryRoleMember -DirectoryRoleId $role.Id
+  foreach ($m in $members) {
+    $match = $orphans | Where-Object { $_.UserPrincipalName -eq (Get-MgUser -UserId $m.Id).UserPrincipalName }
+    if ($match) { $match | Add-Member -NotePropertyName "PrivilegedRole" -NotePropertyValue $role.DisplayName }
+  }
+}
+```
+8. Use the `Measure-Object` cmdlet to count how many users were retrieved in the `$report` variable, then use the `Select-Object` cmdlet to display the first five user records from the `$report` variable.  This helps confirm that the data was collected correctly and that the expected fields are present.     
 ![descriptive alt text](./images/145.png)
+```powershell
+$report | Measure-Object
+```
+10. Check whether **Orphans** is empty. In this case, there are 14 accounts reporting as being orphaned.
 ![descriptive alt text](./images/146.png)
-
-
-
-4. Add column: **Manager**  
-5. Filter for “No manager assigned”  
-6. Screenshot results  
-
-📷 **Placeholder:**  
-![Accounts with no manager](images/no-manager.png)
+```powershell
+$orphans | Measure-Object
+```
+11. Use the following command to filter the report and list only the accounts with no assigned manager. This helps identify orphaned accounts that may require follow-up.
+![descriptive alt text](./images/147.png)<br>
+```powershell
+$report | Where-Object { -not $_.Manager } | Select-Object DisplayName,UserPrincipalName
+```
+12. After identifying users without assigned managers, export the list to a CSV file and confirm the file was created successfully.
+![descriptive alt text](./images/148.png)
+   - **Export the orphaned accounts to a CSV file:**
+     ```powershell
+       $orphans | Export-Csv "OrphanedAccountsReport.csv" -NoTypeInformation
+       ```
+   - **Check the current directory to confirm where the file was saved:**
+     ```powershell
+       Get-Location
+       ```
+   - **List all CSV files in the directory to verify the export:**
+     ```powershell
+       Get-ChildItem *.csv
+       ```
+   - **Open the report to review the contents:**
+     ```powershell
+       view OrphanedAccountsReport.csv
+       ```
+![descriptive alt text](./images/149.png)
 
 **Audit Value:**  
 Shows accounts with unclear ownership — a strong finding during compliance checks.
