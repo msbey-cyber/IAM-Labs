@@ -104,8 +104,9 @@ Then click "Reset Password"
 6. Communicate the reset details to the user as appropriate.
 
 ### **Task 2: Validate Password Reset**
-1. Attempt to sign in as `Test User` using the old password → login fails.  
-2. Use the new temporary password or reset link → successfully sign in after reset.  
+1. Attempt to sign in as `Test User` using the old password → login fails.
+![descriptive alt text](./images/111.png)
+3. Use the new temporary password or reset link → successfully sign in after reset.  
 
 ---
 
@@ -113,14 +114,18 @@ Then click "Reset Password"
 
 ### **Task 1: Locate the User**
 1. Go to **Directory → People** and open `Test User`.
+![descriptive alt text](./images/84.png)
 
 ### **Task 2: Suspend the User**
-1. Click **More Actions → Suspend**.  
-2. Confirm the suspension when prompted.  
+1. Click **More Actions → Suspend**.
+![descriptive alt text](./images/85.png)
+3. Confirm the suspension when prompted.
 
 ### **Task 3: Validate Suspension**
-1. Attempt to sign in as `Test User` → login fails with “Account disabled” message.  
-2. In the Okta Admin Console, check `Status = Suspended`.  
+1. Attempt to sign in as `Test User` → login fails with “Unable to sign in” message.
+![descriptive alt text](./images/111.png)  
+3. In the Okta Admin Console, notice the `Suspended` status under Test User's account.
+![descriptive alt text](./images/86.png)
 
 > Note: Suspended users can be re‑enabled later using **More Actions → Unsuspend**.
 
@@ -132,6 +137,6 @@ This lab provided practical hands‑on experience with foundationa
 
 ---
 
-**Author:** *[Your Name]*  
+**Author:** *Qadriyyah Abdullah [Ms Bey]*  
 **Date:** *December 2025*  
 **Tags:** `Okta` `Identity & Access Management` `Lifecycle Governance` `User Administration` `Password Reset` `Group Management`
