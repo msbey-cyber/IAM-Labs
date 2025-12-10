@@ -27,13 +27,16 @@ This section shows how to manually gather that evidence.
 
 ### 🔹 1.1 View a User’s Privileged Role Assignments
 **Steps**
-1. Go to **Identity → Users → All users**  
-2. Select a user  
-3. Navigate to **Assigned roles**  
-4. Capture a screenshot of the user’s directory role assignments  
 
-📷 **Screenshot Placeholder:**  
-![User role assignments](images/user-role-assignments.png)
+1. Go to **Entra ID → Users → All users**  
+2. Select a user  
+![descriptive alt text](./images/112.png)
+
+3. Navigate to **Assigned roles** 
+
+4. Capture a screenshot of the user’s directory role assignments
+![descriptive alt text](./images/114.png)
+
 
 **What this represents in an audit:**  
 - Confirms privileged access  
@@ -44,11 +47,12 @@ This section shows how to manually gather that evidence.
 
 ### 🔹 1.2 View a User’s Group Membership (Access Through Groups)
 **Steps**
-1. In the same user profile, select **Groups**  
-2. Capture a screenshot of group membership  
 
-📷 **Placeholder:**  
-![User group memberships](images/user-groups.png)
+1. In the same user profile, select **Groups**
+![descriptive alt text](./images/115.png)
+2. Capture a screenshot of group membership  
+![descriptive alt text](./images/116.png)
+
 
 **Why this matters:**  
 Group → App → Role mappings often grant hidden access.
@@ -57,12 +61,12 @@ Group → App → Role mappings often grant hidden access.
 
 ### 🔹 1.3 View a User’s Application Assignments
 **Steps**
-1. Open the user profile  
-2. Click **Applications**  
-3. Capture app assignments  
 
-📷 **Placeholder:**  
-![User app assignments](images/user-app-assignments.png)
+1. Open the user profile  
+2. Click **Applications** 
+![descriptive alt text](./images/117.png)
+3. Capture app assignments  
+![descriptive alt text](./images/118.png)
 
 **Audit Value:**  
 Shows access to business apps, including high‑risk apps (e.g., Salesforce, HRIS).
@@ -79,29 +83,27 @@ Compliance simulations require proving:
 
 ### 🔹 2.1 Access Audit Logs for Role Changes
 **Steps**
-1. Navigate to **Identity → Monitoring → Audit logs**  
-2. In the search bar, type *role*  
-3. Filter **Activity** for events such as:  
-   - Add member to Role  
-   - Remove member from Role  
-   - Update Role Assignment  
-4. Capture screenshots  
 
-📷 **Placeholder:**  
-![Role change audit logs](images/role-change-logs.png)
+1. Navigate to **Entra ID → Monitoring & Health → Audit logs**  
+![descriptive alt text](./images/119.png)
+2. In the items listed under **Category**, select *Role Management* and click **Apply**  
+![descriptive alt text](./images/120.png)
+3. All users with the role of Management will appear after the Category is selected to *Role Management*  
+![descriptive alt text](./images/121.png)
+4. Capture screenshots  
 
 ---
 
 ### 🔹 2.2 Filter Role Audit Events by User
-1. Under Audit logs, click Add filters. In this lab, I selected **Initiated by**, but all of the options are:
-**Filter by:**
-- Initiated by  
-- Target user  
-- Activity  
-- Date range  
-
-📷 **Placeholder:**  
-![Filtered role events](images/filtered-role-events.png)
+1. Under **Audit Logs**, click **Add filters**. In this lab, I selected **Initiated by**, but all of the options are:<br>
+**Filter by:**<br>
+- Initiated by (actor)<br> 
+- Target<br> 
+- User Agent<br>
+- Status <br>
+![descriptive alt text](./images/122.png)
+![descriptive alt text](./images/123.png)
+![descriptive alt text](./images/124.png)
 
 **Audit Value:**  
 Proves change accountability — who modified privileged access.
@@ -123,26 +125,27 @@ These include:
 
 ### 🔹 3.1 Find Stale Accounts (No Login in 90 + Days)
 **Steps**
-1. Go to **Identity → Monitoring → Sign‑in logs**  
-2. Select **Add filter → User type**  
-3. Sort by date or filter by 90 + day inactivity  
-4. Capture a screenshot  
 
-📷 **Placeholder:**  
-![Stale accounts](images/stale-accounts.png)
+1. Go to **Entra ID → Monitoring & Health → Sign‑in logs**  
+![descriptive alt text](./images/125.png)
+2. Select **Add filter → click on the carrot to the right of the **Filter** field → select User → enter No recent sign-ins under Value → click Apply** 
+![descriptive alt text](./images/126.png)
+3. In my tenant, there are no stale accounts to be found  
+![descriptive alt text](./images/127.png)
+4. Capture a screenshot 
 
 ---
 
 ### 🔹 3.2 Identify Disabled Accounts
 **Steps**
-1. Go to **Entra → Users → All users**  
-2. At the top, click **Add filter**  
-3. Select **No** 
-4. Apply the filter
-5. The list now shows ONLY disabled users (if there are any)
 
-📷 **Placeholder:**  
-![Disabled users](images/disabled-users.png)
+1. Go to **Entra ID → Users → All users**
+2. At the top, click **Add filter** 
+![descriptive alt text](./images/128.png)
+3. Select **No**, the click **Apply** to apply the filter 
+![descriptive alt text](./images/129.png)
+4. The list now shows ONLY disabled users (if there are any; in my tenant, there are no disabled accounts)
+![descriptive alt text](./images/130.png)
 
 **Audit Value:**  
 Disabled accounts assigned to admin roles are a critical finding.
@@ -151,19 +154,22 @@ Disabled accounts assigned to admin roles are a critical findi
 
 ### 🔹 3.3 Identify Guest or External Users With Access
 **Steps**
-1. Go to **Users → All users**  
-2. Apply filter: **User type = Guest**  
-3. Capture guest accounts  
-4. Click each → capture **Assigned Roles**  
 
-📷 **Placeholder:**  
-![Guest privileged accounts](images/guest-admins.png)
+1. Go to **Entra ID → Users → All users**, then click on **Add filter** and select **User**    
+![descriptive alt text](./images/131.png)
+2. In the **Value** bar, enter *Guest*, then click **Apply**
+![descriptive alt text](./images/132.png)
+3. Capture guest accounts  
+![descriptive alt text](./images/133.png)  
 
 ---
 
 ### 🔹 3.4 Find Accounts With No Assigned Manager (Orphaned Ownership)
 **Steps**
-1. Go to **Identity → Users**  
+
+1. Log in to https://portal.azure.com/ as admin, and click on the PowerShell icon to the upper-right of the screen to open CloudShell
+
+![descriptive alt text](./images/134.png)
 2. Add column: **Manager**  
 3. Filter for “No manager assigned”  
 4. Screenshot results  
