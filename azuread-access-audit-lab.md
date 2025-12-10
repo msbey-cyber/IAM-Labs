@@ -168,11 +168,30 @@ Disabled accounts assigned to admin roles are a critical findi
 **Steps**
 
 1. Log in to https://portal.azure.com/ as admin, and click on the PowerShell icon to the upper-right of the screen to open CloudShell
-
+![descriptive alt text](./images/150.png)
+2. Run the command Install-Module Microsoft.Graph -Scope CurrentUser -Force
 ![descriptive alt text](./images/134.png)
-2. Add column: **Manager**  
-3. Filter for “No manager assigned”  
-4. Screenshot results  
+3. Run the command **Import-Module Microsoft.Graph**, then run command **Connect-MgGraph -Scopes "User.ReadWrite.All"**. After running this command, I was prompted with the message **To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B426889U2l to authenticate** (you must authenticate with a global administrator account).
+![descriptive alt text](./images/136.png)
+4. Enter the code that is provided in PowerShell after running the previous command, then enter your login credentials, enter the number provided from the login process to your Microsoft Authenticator app on your mobile device, then confirm you are trying to sign in to Microfost Ggraph Command Line Tools by clicking **Continue**. After logging in, a prompt will appear that you can close that tab out and return to the PowerShell terminal
+![descriptive alt text](./images/137.png)
+![descriptive alt text](./images/138.png)
+![descriptive alt text](./images/139.png)
+![descriptive alt text](./images/140.png)
+![descriptive alt text](./images/141.png)<br>
+5. Successful login will reflect on the PowerShell/CloudShell screen with a welcome message 
+![descriptive alt text](./images/142.png)
+6. 
+![descriptive alt text](./images/143.png)
+![descriptive alt text](./images/144.png)
+![descriptive alt text](./images/145.png)
+![descriptive alt text](./images/146.png)
+
+
+
+4. Add column: **Manager**  
+5. Filter for “No manager assigned”  
+6. Screenshot results  
 
 📷 **Placeholder:**  
 ![Accounts with no manager](images/no-manager.png)
