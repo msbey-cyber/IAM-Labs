@@ -11,7 +11,7 @@ Each lab shows how I implement, configure, and govern user a
 
 | Lab | Technology | Description |
 |-----|-------------|--------------|
-| [Azure Active Directory Lab](Azure-AD/Azure-Active-Directory-Lab.md) | Microsoft Entra ID | Create users, manage groups, set Group Policy, and test access permissions in an Azure AD environment. |
+| [Azure Active Directory Lab](https://github.com/msbey-cyber/IAM-Labs/blob/main/Azure-Active-Directory.md) | Microsoft Entra ID | Create users, manage groups, set Group Policy, and test access permissions in an Azure AD environment. |
 | [Azure AD Governance & Lifecycle Automation Lab](Azure-AD/Access-Packages-Lifecycle-Governance-Lab.md) | Microsoft Entra ID | Configure Access Packages, Entitlement Management, and Expiration Policies for identity lifecycle governance. |
 | [Okta User & Group Management Lab](Okta-User-Management-Lab.md) | Okta Workforce Identity Cloud | Create users, build and assign groups, reset passwords, and suspend accounts through the Okta Admin Console. |
 
