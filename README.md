@@ -15,6 +15,7 @@ Each lab shows how I implement, configure, and govern user a
 | [Azure AD Governance & Lifecycle Automation Lab](https://github.com/msbey-cyber/IAM-Labs/blob/main/Access-Packages-Lifecycle-Governance-Lab.md) | Microsoft Entra ID | Configure Access Packages, Entitlement Management, and Expiration Policies for identity lifecycle governance. |
 | [Okta User & Group Management Lab](https://github.com/msbey-cyber/IAM-Labs/blob/main/Okta-User-Group-Management.md) | Okta Workforce Identity Cloud | Create users, build and assign groups, reset passwords, and suspend accounts through the Okta Admin Console. |
 | [Azure Active Directory Audits Lab](https://github.com/msbey-cyber/IAM-Labs/blob/main/azuread-access-audit-lab.md) | Microsoft Entra ID | Generate audit‑style reports by reviewing user access, role changes, group memberships, app assignments, and orphaned accounts using Microsoft Entra ID and Microsoft Graph PowerShell. |
+| [Okta SSO Integration Lab: SAML & OIDC Configuration](https://github.com/msbey-cyber/IAM-Labs/blob/main/okta-saml-oidc-lab.md) | Okta Workforce Identity Cloud | SAML and OIDC application integration in Okta, including custom SSO configuration, attribute mapping, redirect URI setup, and secure client credential management. |
 
 ---
 
