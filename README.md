@@ -16,6 +16,7 @@ Each lab shows how I implement, configure, and govern user a
 | [Okta User & Group Management Lab](https://github.com/msbey-cyber/IAM-Labs/blob/main/Okta-User-Group-Management.md) | Okta Workforce Identity Cloud | Create users, build and assign groups, reset passwords, and suspend accounts through the Okta Admin Console. |
 | [Azure Active Directory Audits Lab](https://github.com/msbey-cyber/IAM-Labs/blob/main/azuread-access-audit-lab.md) | Microsoft Entra ID | Generate audit‑style reports by reviewing user access, role changes, group memberships, app assignments, and orphaned accounts using Microsoft Entra ID and Microsoft Graph PowerShell. |
 | [Okta SSO Integration Lab: SAML & OIDC Configuration](https://github.com/msbey-cyber/IAM-Labs/blob/main/okta-saml-oidc-lab.md) | Okta Workforce Identity Cloud | SAML and OIDC application integration in Okta, including custom SSO configuration, attribute mapping, redirect URI setup, and secure client credential management. |
+| [Okta MFA & Policy Configuration Lab](https://github.com/msbey-cyber/IAM-Labs/blob/main/Okta-Verify-MFA-Lab.md) | Okta Workforce Identity Cloud | Enable and configure Okta Verify MFA, assign required factors, enforce MFA at sign‑in, and test end‑user enrollment and authentication. |
 
 ---
 
