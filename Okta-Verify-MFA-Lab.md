@@ -307,22 +307,14 @@ This verifies that policies, enrollment, and authentication requirements are fun
 
 ---
 
-# 🟦 Summary of What This Lab Accomplishes
+## Conclusion
 
-This lab demonstrates the complete workflow required to implement a secure MFA strategy in Okta.  
-You configured:
+This lab provided comprehensive hands-on experience configuring and enforcing Multi‑Factor Authentication (MFA) using Okta Verify within an enterprise identity environment. You enabled and configured secure authenticators, created MFA enrollment policies, and implemented sign‑on policies that enforce MFA requirements across applications. You also walked through the complete end‑user MFA enrollment experience and validated all authentication events through Okta System Logs.
 
-### ✔ MFA authenticators (Okta Verify Push, TOTP, optional FIDO2)  
-### ✔ Enrollment policies enforcing MFA setup for users  
-### ✔ Authentication policies requiring MFA at sign‑in  
-### ✔ Group‑based enforcement for application access  
-### ✔ User MFA enrollment flow testing  
-### ✔ System log validation of MFA events  
+Overall, this lab demonstrates practical IAM skills essential for strengthening authentication security, enforcing Zero Trust principles, improving organizational compliance posture, and ensuring users authenticate using secure, phishing‑resistant methods. It reflects real-world responsibilities performed by IAM analysts and engineers in modern identity security programs.
 
-These steps mirror real‑world IAM responsibilities such as:
+---
 
-- Enforcing Zero Trust authentication  
-- Improving identity security posture  
-- Supporting compliance (SOC 2, ISO 27001, PCI‑DSS)  
-- Implementing modern MFA standards  
-- Validating security controls with audit‑ready evidence  
+**Author:** *Qadriyyah Abdullah [Ms Bey]*  
+**Date:** *December 2025*  
+**Tags:** `Okta` `MFA` `OktaVerify` `AuthenticationPolicies` `IAM` `IdentitySecurity`
