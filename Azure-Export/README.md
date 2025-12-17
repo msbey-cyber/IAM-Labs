@@ -69,7 +69,7 @@ Qadriyyah Abdullah [Ms Bey], 2025
 
 ## License
 
-This repository is licensed under the GNU General Public License v3.0 (GPL-3.0). For more details, see the [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html).
+The `Azure-Terraform-Export.ps1` script in this folder is licensed under the GNU General Public License v3.0 (GPL-3.0). For more details, see the [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ***
 
